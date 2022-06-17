@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="@drawable/login_img">
+
+
+    <!--    <ImageButton-->
+<!--        android:id="@+id/login_facebook_ib"-->
+<!--        android:layout_width="201dp"-->
+<!--        android:layout_height="35dp"-->
+<!--        android:layout_marginStart="98dp"-->
+<!--        android:layout_marginTop="532dp"-->
+<!--        android:layout_marginEnd="112dp"-->
+<!--        android:background="@drawable/facebook_2"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/login_kakao_ib"-->
+<!--        android:layout_width="218dp"-->
+<!--        android:layout_height="31dp"-->
+<!--        android:layout_marginStart="81dp"-->
+<!--        android:layout_marginTop="19dp"-->
+<!--        android:layout_marginEnd="112dp"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/login_apple_id"-->
+<!--        app:srcCompat="@drawable/apple" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/login_apple_id"-->
+<!--        android:layout_width="228dp"-->
+<!--        android:layout_height="35dp"-->
+
+<!--        android:layout_marginStart="83dp"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:layout_marginEnd="100dp"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        android:scaleType="fitCenter"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/login_facebook_ib"-->
+<!--        app:srcCompat="@drawable/kakaotalk_2" />-->
+
+    <View
+        android:id="@+id/login_facebook_ib"
+        android:layout_width="220dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="13dp"
+        app:layout_constraintBottom_toTopOf="@+id/login_kakao_ib"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"/>
+
+    <View
+        android:id="@+id/login_kakao_ib"
+        android:layout_width="220dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/login_apple_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"/>
+
+    <View
+        android:id="@+id/login_apple_id"
+        android:layout_width="220dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginBottom="147dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:clickable="true"/>
+
+    <View
+        android:id="@+id/login_skip"
+        android:layout_width="82dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="315dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_apple_id"
+        android:clickable="true"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

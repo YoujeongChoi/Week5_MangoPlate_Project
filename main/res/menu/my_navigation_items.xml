@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/btmnav_search"
+        android:icon="@drawable/loupe"
+        android:enabled="true"
+        android:title="맛집찾기" />
+    <item
+        android:id="@+id/btmnav_mangopick"
+        android:icon="@drawable/mangopick_icon"
+        android:enabled="true"
+        android:title="망고픽" />
+    <item
+        android:id="@+id/btmnav_plus"
+        android:icon="@drawable/plus"
+        android:enabled="true"
+        android:checked="true"
+        android:title="none"/>
+    <item
+        android:id="@+id/btmnav_news"
+        android:icon="@drawable/star"
+        android:enabled="true"
+        android:title="소식" />
+    <item
+        android:id="@+id/btmnav_myprofile"
+        android:icon="@drawable/user"
+        android:enabled="true"
+        android:title="내정보" />
+</menu>

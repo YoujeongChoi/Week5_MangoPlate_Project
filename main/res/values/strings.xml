@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">week5_practice</string>
+
+    <string name="facebook_app_id">379979733979191</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">6d326388e22339bf58f0b7140be9e84c</string>
+
+    <string name="naver_client_id">vptSfobFaKbqhGD92XW2</string>
+    <string name="naver_client_secret">uZ3rimjFFL</string>
+</resources>
