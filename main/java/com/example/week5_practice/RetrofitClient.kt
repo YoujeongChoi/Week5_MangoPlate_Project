@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitClient {
 
     val sRetrofit = initRetrofit()
-    private const val FOOD_URL = "https://openapi.naver.com/v1/search/local.json?"
+    private const val FOOD_URL = "https://openapi.naver.com/v1/"
 
     private fun initRetrofit() : Retrofit =
         Retrofit.Builder()

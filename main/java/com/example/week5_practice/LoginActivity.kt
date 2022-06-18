@@ -32,7 +32,8 @@ class LoginActivity : AppCompatActivity() {
         AppEventsLogger.activateApp(this)
 
         binding.loginSkip.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            Log.d(TAG, "LoginActivity - onCreate() called")
+         val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }

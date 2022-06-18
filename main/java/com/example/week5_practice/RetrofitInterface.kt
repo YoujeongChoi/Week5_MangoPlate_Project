@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface RetrofitInterface {
 
-    @GET("food")        // 어떤 http 메소드인지 정의
+    @GET("search/local.json")        // 어떤 http 메소드인지 정의
     fun getWeatherData(@Header("X-Naver-Client-Id")clientId:String,
                        @Header("X-Naver-Client-Secret")clientSecret:String,
                        @Query("query")query:String,

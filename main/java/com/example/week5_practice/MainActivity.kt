@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.week5_practice.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 import java.util.concurrent.ThreadLocalRandom
 import kotlin.math.round
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private var id = "vptSfobFaKbqhGD92XW2"
     private var secret = "uZ3rimjFFL"
     private val NUM_PAGES = 5
-    private var food_list_array = ArrayList<FoodListArray>()
+    private var food_list_array = ArrayList<FoodList>()
 
     data class FoodListArray(
         val address :String,
@@ -46,8 +47,12 @@ class MainActivity : AppCompatActivity() {
         binding.mainListRv.layoutManager = myLayoutManager
 
         getFoodData(id, secret, "용산구 맛집", 20, 1)
-        val layoutManager_food = GridLayoutManager(this, 2)
-        binding.mainListRv.layoutManager = layoutManager_food
+
+        val adapter = MainFoodListAdapter(food_list_array)
+        // val layoutManager_food = GridLayoutManager(this, 2)
+        binding.mainListRv.layoutManager = LinearLayoutManager(this)
+        binding.mainListRv.adapter = adapter
+
 
 //
 //        class ScreenSlidePageFragment : Fragment() {
@@ -63,7 +68,8 @@ class MainActivity : AppCompatActivity() {
     private fun getFoodData(clientId: String, clientSecret: String ,search: String, display: Int, start: Int) {
         //retrofit 인터페이스 가져오기
         val weatherDataInterface = RetrofitClient.sRetrofit.create(RetrofitInterface::class.java)
-        weatherDataInterface.getWeatherData(clientId, clientSecret, search, display, start).enqueue(object :retrofit2.Callback<FoodResponse>{
+        weatherDataInterface.getWeatherData(clientId, clientSecret, search, display, start).enqueue(object :
+            Callback<FoodResponse>{
             override fun onResponse(                    // response 가 제대로 불러왔을 때
                 call: Call<FoodResponse>,
                 response: Response<FoodResponse>
