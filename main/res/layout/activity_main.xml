@@ -45,7 +45,8 @@
                 android:layout_height="wrap_content"
                 android:text="용산구"
                 android:textColor="@color/black"
-                android:textSize="17dp"/>
+                android:textSize="17dp"
+                android:textStyle="bold"/>
 
             <ImageButton
                 android:padding="0dp"
@@ -131,27 +132,32 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
+            android:id="@+id/ordered_by_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="10dp"
+            android:clickable="true">
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
+
+                android:text="평점순"
+                android:textStyle="bold"/>
 
             <ImageButton
                 android:id="@+id/imageButton4"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
+                android:layout_width="13dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="3dp"
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/arrow" />
+                android:src="@drawable/caret_down"
+                app:tint="#7E7E7E"/>
         </LinearLayout>
 
         <Button
@@ -162,7 +168,8 @@
             tools:layout_editor_absoluteX="215dp"
             tools:layout_editor_absoluteY="8dp"
             app:layout_constraintTop_toTopOf="@id/button2"
-            app:layout_constraintEnd_toStartOf="@id/button2"/>
+            app:layout_constraintEnd_toStartOf="@id/button2"
+            />
 
         <Button
             android:id="@+id/button2"
@@ -179,10 +186,13 @@
     <ImageView
         android:id="@+id/main_banner_iv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_launcher_background"
+        android:layout_height="80dp"
+        android:scaleType="fitXY"
+        android:background="@android:color/transparent"
+        android:clickable="true"
         app:layout_constraintTop_toBottomOf="@id/main_filter_cl"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/banner"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_list_rv"
@@ -192,14 +202,18 @@
         app:layout_constraintTop_toBottomOf="@id/main_banner_iv" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         app:menu="@menu/my_navigation_items"
+        app:labelVisibilityMode="labeled"
         app:itemIconTint="@drawable/menu_selector_color"
         app:itemTextColor="@drawable/menu_selector_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/white"
+        app:itemIconSize="20dp"
         />
 
 
