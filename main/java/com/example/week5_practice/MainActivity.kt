@@ -37,10 +37,16 @@ class MainActivity : AppCompatActivity() {
 //        val myLayoutManager = GridLayoutManager(this, 2)
 //        binding.mainListRv.layoutManager = myLayoutManager
 
-        for (i in 1 until total) {
-            getFoodData(id, secret, "용산구 맛집$i", 5, 1)
-            Log.d(TAG, "사이즈 ${food_list_array.size}")
+        getFoodData(id, secret, "용산구 맛집", 5, 1)
+        Log.d(TAG, "사이즈 ${food_list_array.size}")
+        for ( i in 0 until food_list_array.size) {
+            getFoodImgData(id, secret, "용산 ${food_list_array[i].name}", 1, "sim", "all")
         }
+
+//
+//        for (i in 1 until total) {
+//
+//        }
 
 
 //
@@ -74,7 +80,7 @@ class MainActivity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val result = response.body() as FoodResponse
 
-                        for (i in 1 until result.items.size) {
+                        for (i in 0 until result.items.size) {
                             var randomInteger = ThreadLocalRandom.current().nextInt(1, 100)
                             var review = randomInteger
 
@@ -91,11 +97,11 @@ class MainActivity : AppCompatActivity() {
                                 "(리뷰 $review)"
                             )
                             food_list_array.add(varFoodList)
-                            Log.d(TAG, "추가 ${food_list_array.size}")
+                            // Log.d(TAG, "추가 ${food_list_array.size}")
 
-                           getFoodImgData(id, secret, "용산 $title", 1, "sim", "all")
 
-                            Log.d(TAG, "사이즈확인 - onResponse() called ${food_img_array.size}")
+
+                            // Log.d(TAG, "사이즈확인 - onResponse() called ${food_img_array.size}")
                         }
 
                         val adapter = MainFoodListAdapter(food_list_array)
@@ -138,15 +144,17 @@ class MainActivity : AppCompatActivity() {
                     response: Response<FoodImgResponse>
                 ) {
                     if (response.isSuccessful) {
-                        val result = response.body() as FoodImgResponse
-  //                      var url = result.item[0].link
-//                        food_img_array.add(FoodImg(url))
-                        for (i in 0 until display) {
-                            Log.d(TAG, "확인용 url - ${result.items.size}")
-                            Log.d(TAG, "확인용 url - $result.items[i].link")
-                            var url = result.items[i].link
-                            food_img_array.add(FoodImg(url))
-                        }
+                        val result = response.body()!!.items
+                        Log.d(TAG, "확인용 url - ${result.size}")
+                        Log.d(TAG, "확인용 url - ${result[0].link}")
+                        var url = result[0].link
+                        food_img_array.add(FoodImg(url))
+//                        for (i in 0 until display) {
+//                            Log.d(TAG, "확인용 url - ${result.items.size}")
+//                            Log.d(TAG, "확인용 url - $result.items[i].link")
+//                            var url = result.items[i].link
+//                            food_img_array.add(FoodImg(url))
+//                        }
                         val adapter = MainFoodImgAdapter(food_img_array)
                         binding.mainListRv.layoutManager = GridLayoutManager(this@MainActivity, 2)
                         // binding.mainListRv.layoutManager = LinearLayoutManager(this@MainActivity)

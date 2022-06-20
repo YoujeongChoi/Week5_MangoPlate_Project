@@ -28,14 +28,13 @@ class MainFoodImgAdapter(val category :ArrayList<FoodImg>) : RecyclerView.Adapte
         val binding = (holder as MainFoodImgHolder).binding
 
         Glide.with(binding.foodListRl)
-            .load(category)
+            .load(category[position])
             // .placeholder(R.drawable.img_file_place_holder)
             .error(R.drawable.food_example)
             .fallback(R.drawable.food_example)
             .skipMemoryCache(true)
             .diskCacheStrategy(DiskCacheStrategy.NONE)
             .into(binding.foodListIv)
-
 
     }
 
