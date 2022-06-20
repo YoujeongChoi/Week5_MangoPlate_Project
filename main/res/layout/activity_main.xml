@@ -54,7 +54,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:background="@android:color/transparent"
-                android:scaleType="fitCenter"
+                android:scaleType="fitXY"
                 app:srcCompat="@drawable/arrow" />
 
         </LinearLayout>
@@ -125,96 +125,144 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_gravity="center"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/main_filter_cl"
         app:layout_constraintTop_toBottomOf="@+id/main_ad_vp"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
+
             android:id="@+id/ordered_by_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_margin="10dp"
             android:clickable="true">
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:textSize="12dp"
                 android:text="평점순"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
 
             <ImageButton
                 android:id="@+id/imageButton4"
-                android:layout_width="13dp"
-                android:layout_height="20dp"
+                android:layout_width="11dp"
+                android:layout_height="19dp"
                 android:layout_marginStart="3dp"
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
                 android:src="@drawable/caret_down"
-                app:tint="#7E7E7E"/>
+                app:tint="#7E7E7E"
+                android:layout_marginLeft="1dp"/>
         </LinearLayout>
 
-        <Button
+        <LinearLayout
+            android:orientation="horizontal"
             android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="215dp"
-            tools:layout_editor_absoluteY="8dp"
-            app:layout_constraintTop_toTopOf="@id/button2"
-            app:layout_constraintEnd_toStartOf="@id/button2"
-            />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="309dp"
-            tools:layout_editor_absoluteY="8dp"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:background="@drawable/main_button_location"
+            android:layout_marginEnd="10dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toStartOf="@id/button2"
+            android:gravity ="center">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/location_icon"/>
+            <TextView
+                android:layout_marginStart="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3km"
+                android:textSize="13dp"
+                android:textColor="#EE792F"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/button2"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/main_button_filter"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity ="center">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/filter"
+                app:tint="#7E7E7E"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="필터"
+                android:textSize="10dp"
+                android:textColor="#7E7E7E"
+                android:textStyle="bold"
+                android:layout_marginStart="3dp"/>
+        </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/main_banner_iv"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:scaleType="fitXY"
+        android:layout_height="60dp"
         android:background="@android:color/transparent"
         android:clickable="true"
-        app:layout_constraintTop_toBottomOf="@id/main_filter_cl"
+        android:scaleType="fitXY"
+        android:src="@drawable/banner"
         app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/banner"/>
+        app:layout_constraintTop_toBottomOf="@id/main_filter_cl" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_margin="9dp"
         android:id="@+id/main_list_rv"
-        android:layout_width="409dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/main_banner_iv" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        app:menu="@menu/my_navigation_items"
-        app:labelVisibilityMode="labeled"
-        app:itemIconTint="@drawable/menu_selector_color"
-        app:itemTextColor="@drawable/menu_selector_color"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/white"
-        app:itemIconSize="20dp"
-        />
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            app:menu="@menu/my_navigation_items"
+            app:labelVisibilityMode="labeled"
+            app:itemIconTint="@drawable/menu_selector_color"
+            app:itemTextColor="@drawable/menu_selector_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/white"
+            app:itemTextAppearanceActive="@style/BottomNavigationView.Active"
+            app:itemTextAppearanceInactive="@style/BottomNavigationView"
+            app:itemIconSize="18dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"/>
+    </RelativeLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -91,13 +91,11 @@
         android:id="@+id/login_skip"
         android:layout_width="82dp"
         android:layout_height="31dp"
-        android:layout_marginStart="315dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="14dp"
         android:layout_marginBottom="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_apple_id"
         android:clickable="true"/>
 

@@ -1,7 +1,7 @@
 package com.example.week5_practice
 
 import android.app.Application
-// import com.kakao.sdk.common.KakaoSdk
+import com.kakao.sdk.common.KakaoSdk
 
 class GlobalApplication : Application() {
     override fun onCreate() {
